@@ -1,0 +1,62 @@
+/* General Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Colors */
+:root {
+    --navy: #1a2b4c;
+    --accent: #d4af37; /* Gold/Yellow for buttons */
+    --light: #f4f6f8;
+}
+
+/* Navbar */
+.navbar { background: var(--navy); padding: 15px 0; color: white; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+.nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+.btn-nav { background: var(--accent); color: var(--navy) !important; padding: 8px 15px; border-radius: 4px; font-weight: bold; }
+
+/* Hero */
+.hero { 
+    background: linear-gradient(rgba(26, 43, 76, 0.9), rgba(26, 43, 76, 0.8)), url('https://source.unsplash.com/1600x900/?construction,bathroom');
+    background-size: cover; 
+    height: 80vh; 
+    color: white; 
+    display: flex; align-items: center; text-align: center;
+}
+.hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
+.btn-primary { display: inline-block; background: var(--accent); color: var(--navy); padding: 12px 30px; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+.btn-primary:hover { background: #fff; }
+
+/* Sections */
+.section-light { padding: 60px 0; background: #fff; }
+.section-dark { padding: 60px 0; background: var(--navy); color: white; text-align: center; }
+.white-text { color: white; margin-bottom: 20px; }
+.subtitle { margin-bottom: 40px; opacity: 0.8; }
+
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: var(--navy); }
+
+/* Grid */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.card { background: #f9f9f9; padding: 30px; border-radius: 8px; border-left: 5px solid var(--navy); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.card h3 { color: var(--navy); margin-bottom: 15px; }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.photo-placeholder { background: #3a4f7a; height: 250px; display: flex; align-items: center; justify-content: center; color: #aaa; border-radius: 8px; border: 2px dashed rgba(255,255,255,0.2); }
+
+/* Contact */
+.section-hero { background: var(--light); padding: 80px 0; text-align: center; }
+.contact-box { max-width: 600px; margin: auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+
+/* Footer */
+footer { background: #111; color: #777; text-align: center; padding: 20px 0; margin-top: auto; }
+
+/* Mobile Responsive */
+@media(max-width: 768px) {
+    .nav-links { display: none; } /* Simplified for now */
+    .hero-content h1 { font-size: 2rem; }
+}
