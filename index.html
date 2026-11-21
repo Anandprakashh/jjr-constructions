@@ -5,28 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JJR Construction | Renovation & Plumbing Services London</title>
+    <meta name="description"
+        content="Professional renovation and plumbing services in London. Gas Safe registered engineers specializing in bathrooms, kitchens, and commercial fit-outs.">
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="JJR Construction | Renovation & Plumbing Services London">
+    <meta property="og:description"
+        content="Expert renovation and plumbing services in London. Get a free quote today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jjrconstructions.co.uk">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-flex">
-            <a href="#" class="logo-link"><img src="images/jjr-logo.png" alt="JJR Construction Logo"></a>
-            <ul class="nav-links">
+            <a href="#" class="logo-link"><img src="images/logo.png" alt="JJR Construction Logo"></a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Our Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
             </ul>
+            <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero"
+        style="background-image: linear-gradient(rgba(26, 43, 76, 0.85), rgba(26, 43, 76, 0.75)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');">
         <div class="container hero-content">
             <h1>Expert Renovations & Plumbing in London</h1>
             <p>Specialists in Bathrooms, Kitchens, and Commercial Repairs. Professional Gas Safe engineers.</p>
@@ -39,37 +52,35 @@
         <div class="container">
             <h2 class="section-title">Our Services</h2>
             <div class="grid-3">
-                <div class="card">
+                <article class="card">
                     <h3>Bathroom Renovations</h3>
                     <p>Complete installation and tiling services. Modern designs for a refreshed London home.</p>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <h3>Kitchen Fitting</h3>
                     <p>From planning to the final connection. We build functional and stylish kitchens.</p>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <h3>Plumbing & Gas Safe</h3>
                     <p>Certified repairs, new installations, and boiler maintenance for peace of mind.</p>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <h3>Commercial Repairs</h3>
                     <p>Reliable fit-outs and maintenance for London office and retail spaces.</p>
-                </div>
-                <div class="card">
+                </article>
+                <article class="card">
                     <h3>Full Renovations</h3>
                     <p>Project management from the first brick to the final coat of paint.</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section (Placeholder) -->
+    <!-- Gallery / Recent Work -->
     <section id="gallery" class="section-dark">
         <div class="container">
             <h2 class="section-title white-text">Recent Work</h2>
-            <p class="subtitle">Check out our latest London projects.</p>
-
-            <!-- REPLACE THESE WITH ACTUAL PHOTOS LATER -->
+            <p class="subtitle white-text">Check out our latest London projects.</p>
             <div class="gallery-grid">
                 <div class="photo-placeholder">Bathroom Project 1</div>
                 <div class="photo-placeholder">Kitchen Retrofit</div>
@@ -78,11 +89,11 @@
         </div>
     </section>
 
-    <!-- About / Trust -->
-    <section id="about" class="section-light">
+    <!-- About / Why Choose Us -->
+    <section id="about" class="section-light" style="padding: 60px 0; text-align: center;">
         <div class="container">
             <h2 class="section-title">Why Choose JJR Construction?</h2>
-            <ul class="checklist">
+            <ul style="list-style: none; display: inline-block; text-align: left; font-size: 1.1rem; line-height: 2;">
                 <li>✅ Local London Specialists</li>
                 <li>✅ Gas Safe Registered Engineers</li>
                 <li>✅ Professional & Reliable</li>
@@ -93,26 +104,49 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section-hero">
-        <div class="container contact-box">
-            <h2>Contact Us</h2>
-            <p>Ready to start? Get a free quote for your renovation or repair.</p>
-            <form action="https://formspree.io/f/mvkabkpq" method="POST">
-                <!-- You will need to sign up for Formspree and replace YOUR_FORM_ID -->
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Tell us about your project..." rows="5"></textarea>
-                <button type="submit" class="btn-primary">Send Message</button>
-            </form>
-            <p class="phone-number">Call us: 07XXX XXX XXX</p>
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="subtitle white-text">Ready to start? Get a free quote for your renovation or repair.</p>
+            <div class="contact-box">
+                <!-- Replace YOUR_FORM_ID with your actual Formspree endpoint ID -->
+                <form action="https://formspree.io/f/mvkabkpq" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send
+                        Message</button>
+                </form>
+            </div>
+            <p style="margin-top: 20px;"><strong>Call us:</strong> 07424214992</p>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 JJR Construction. Serving London, UK.</p>
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
