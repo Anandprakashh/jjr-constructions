@@ -5,24 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JJR Construction | Renovation & Plumbing Services London</title>
+
+    <!-- SEO -->
     <meta name="description"
         content="Professional renovation and plumbing services in London. Gas Safe registered engineers specializing in bathrooms, kitchens, and commercial fit-outs.">
+    <meta property="og:title" content="JJR Construction | Premier Renovation Specialists">
+    <meta property="og:image" content="images/bathroom-before.jpg"> <!-- Use your best image here -->
 
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="JJR Construction | Renovation & Plumbing Services London">
-    <meta property="og:description"
-        content="Expert renovation and plumbing services in London. Get a free quote today.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jjrconstructions.co.uk">
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap"
+        rel="stylesheet">
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Libraries for Animations & Sliders -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@img-comparison-slider@8/dist/styles.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+
+    <!-- Navbar -->
+    <nav class="navbar" data-aos="fade-down">
         <div class="container nav-flex">
             <a href="#" class="logo-link"><img src="images/jjr-logo.png" alt="JJR Construction Logo"></a>
             <ul class="nav-links" id="navLinks">
@@ -31,7 +35,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" id="menuToggle">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -39,16 +43,16 @@
 
     <!-- Hero Section -->
     <header class="hero"
-        style="background-image: linear-gradient(rgba(26, 43, 76, 0.85), rgba(26, 43, 76, 0.75)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');">
-        <div class="container hero-content">
-            <h1>London’s Premier Renovation Specialists</h1>
-            <p>Master craftsmanship for Bathrooms, Kitchens, and Commercial Repairs.</p>
+        style="background-image: linear-gradient(rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');">
+        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1000">
+            <h1>London's Premier Renovation Specialists</h1>
+            <p>Master craftsmanship for bathrooms, kitchens, and commercial fit-outs. Certified Gas Safe engineers.</p>
             <a href="#contact" class="btn-primary">Start Your Project</a>
         </div>
     </header>
 
     <!-- Services Section -->
-    <section id="services" class="section-light">
+    <section id="services" class="section-light" data-aos="fade-up">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
             <div class="grid-3">
@@ -76,60 +80,53 @@
         </div>
     </section>
 
-    <!-- Gallery / Recent Work -->
+    <!-- Gallery Section (With Interactive Sliders) -->
     <section id="gallery" class="section-dark">
         <div class="container">
-            <h2 class="section-title white-text">Recent Work</h2>
-            <p class="subtitle white-text">Check out our latest London projects.</p>
+            <h2 class="section-title white-text" data-aos="fade-down">Recent Work</h2>
+            <p class="subtitle white-text" data-aos="fade-up">Drag the slider to see the transformation.</p>
 
-            <div class="gallery-grid">
-                <!-- Project 1 -->
-                <div class="gallery-item">
-                    <img src="images/bathroom.jpeg" alt="Bathroom Renovation Project in London">
-                    <div class="overlay">
-                        <h4>Bathroom Project</h4>
-                    </div>
-                </div>
+            <!-- Project 1 -->
+            <div class="comparison-container" data-aos="fade-up">
+                <!-- You must have images named bathroom-before.jpg and bathroom-after.jpg in your images folder -->
+                <img-comparison-slider>
+                    <img slot="first" src="images/bathroom-before.jpg" alt="Before Renovation">
+                    <img slot="second" src="images/bathroom-after.jpg" alt="After Renovation">
+                </img-comparison-slider>
+            </div>
 
-                <!-- Project 2 -->
-                <div class="gallery-item">
-                    <img src="images/kitchen.jpeg" alt="Kitchen Retrofit">
-                    <div class="overlay">
-                        <h4>Kitchen Retrofit</h4>
-                    </div>
-                </div>
+            <!-- Project 2 -->
+            <div class="comparison-container" data-aos="fade-up" data-aos-delay="100">
+                <img-comparison-slider>
+                    <img slot="first" src="images/kitchen-before.jpg" alt="Before Kitchen">
+                    <img slot="second" src="images/kitchen-after.jpg" alt="After Kitchen">
+                </img-comparison-slider>
+            </div>
 
-                <!-- Project 3 -->
-                <div class="gallery-item">
-                    <img src="images/commercial.jpeg" alt="Commercial Fit-out">
-                    <div class="overlay">
-                        <h4>Commercial Fit-out</h4>
-                    </div>
-                </div>
+            <!-- Project 3 -->
+            <div class="comparison-container" data-aos="fade-up" data-aos-delay="200">
+                <img-comparison-slider>
+                    <img slot="first" src="images/commercial-before.jpg" alt="Before Fit-out">
+                    <img slot="second" src="images/commercial-after.jpg" alt="After Fit-out">
+                </img-comparison-slider>
             </div>
         </div>
     </section>
 
-    <!-- About / Why Choose Us -->
-    <section id="about" class="section-light">
-        <div class="container">
+    <!-- About Section -->
+    <section id="about" class="section-light" data-aos="fade-in">
+        <div class="container text-center">
             <h2 class="section-title">Why Choose JJR Construction?</h2>
-
-            <div class="grid-3" style="max-width: 800px; margin: 0 auto;">
+            <div class="grid-3 about-grid">
                 <div class="feature-box">
-                    <div class="icon">✅</div>
                     <h4>Local London Specialists</h4>
                     <p>We know the city inside and out.</p>
                 </div>
-
                 <div class="feature-box">
-                    <div class="icon">🛡️</div>
                     <h4>Gas Safe Registered</h4>
                     <p>Fully certified engineers for your safety.</p>
                 </div>
-
                 <div class="feature-box">
-                    <div class="icon">⭐</div>
                     <h4>Quality Guarantee</h4>
                     <p>We stand by our craftsmanship.</p>
                 </div>
@@ -140,11 +137,13 @@
     <!-- Contact Section -->
     <section id="contact" class="section-hero">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="subtitle white-text">Ready to start? Get a free quote for your renovation or repair.</p>
-            <div class="contact-box">
-                <!-- Replace YOUR_FORM_ID with your actual Formspree endpoint ID -->
-                <form action="https://formspree.io/f/mvkabkpq" method="POST">
+            <h2 class="section-title" data-aos="fade-down">Contact Us</h2>
+            <p class="subtitle text-dark" style="color: #333;">Ready to start? Get a free quote for your renovation or
+                repair.</p>
+
+            <div class="contact-box" data-aos="zoom-in-up">
+                <!-- Replace YOUR_FORM_ID with your Formspree ID -->
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <input type="tel" name="phone" placeholder="Phone Number">
@@ -158,28 +157,28 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer data-aos="fade-in">
         <div class="container">
-            <p>&copy; 2026 JJR Construction. Serving London, UK.</p>
+            <p>&copy; 2024 JJR Construction. Serving London, UK.</p>
         </div>
     </footer>
 
+    <!-- Scripts for Animations & Sliders -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@img-comparison-slider@8/dist/index.min.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+        // Initialize Animations
+        AOS.init({
+            duration: 800, // How long the animation takes
+            once: true,     // Only animate once per load
+            offset: 100    // Start animation slightly before item appears
         });
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>

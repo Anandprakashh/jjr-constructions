@@ -402,3 +402,51 @@ footer {
     color: #666;
     font-size: 0.95rem;
 }
+
+/* --- Animation Classes (AOS) Overrides --- */
+[data-aos] {
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+}
+
+/* --- Interactive Slider Styles --- */
+.comparison-container {
+    max-width: 800px;
+    margin: 40px auto;
+    /* Spacing between projects */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    /* Premium drop shadow */
+}
+
+/* Make the slider touch-friendly on mobile */
+img-comparison-slider {
+    height: 400px;
+    border-radius: 8px;
+}
+
+/* Optional: Style the "handle" (the drag line) */
+img-comparison-slider::part(handle) {
+    background-color: var(--accent);
+    /* Gold handle */
+    width: 6px;
+    cursor: ew-resize;
+}
+
+/* --- About Grid Adjustments --- */
+.about-grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Mobile Fix for Slider Height */
+@media(max-width: 768px) {
+    img-comparison-slider {
+        height: 250px;
+        /* Smaller slider on phones */
+    }
+}
