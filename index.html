@@ -1,186 +1,498 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JJR Construction | Renovation & Plumbing Services London</title>
-
-    <!-- SEO -->
+    <title>Premium Garden Rooms & Renovations in London | JJR Construction Ltd</title>
     <meta name="description"
-        content="Professional renovation and plumbing services in London. Gas Safe registered engineers specializing in bathrooms, kitchens, and commercial fit-outs.">
-    <meta property="og:title" content="JJR Construction | Premier Renovation Specialists">
-    <meta property="og:image" content="images/bathroom-before.jpg"> <!-- Use your best image here -->
+        content="JJR Construction Ltd designs and builds bespoke garden rooms, annexes, and full renovations across all London boroughs. Craftsmanship-focused, premium finishes starting from £15,000. Get a free quote today.">
+    <meta name="keywords"
+        content="Garden Rooms London, Garden Annexe, Home Office, Full Renovations London, Commercial Repairs, Kitchen Fittings, JJR Construction">
+    <meta name="author" content="JJR Construction Ltd">
+    <link rel="canonical" href="https://jjrconstructions.co.uk/">
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap"
-        rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jjrconstructions.co.uk/">
+    <meta property="og:title" content="Premium Garden Rooms & Renovations in London | JJR Construction Ltd">
+    <meta property="og:description"
+        content="Bespoke garden rooms and home renovations crafted with precision. Serving all London boroughs. Get a free quote today.">
+    <meta property="og:image" content="https://source.unsplash.com/1200x630/?garden-room,architecture">
 
-    <!-- Libraries for Animations & Sliders -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@img-comparison-slider@8/dist/styles.css" />
-    <link rel="stylesheet" href="style.css">
+    <!-- JSON-LD LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GeneralContractor",
+      "name": "JJR Construction Ltd",
+      "image": "https://jjrconstructions.co.uk/logo.png",
+      "@id": "https://jjrconstructions.co.uk",
+      "url": "https://jjrconstructions.co.uk",
+      "telephone": "+447424214992",
+      "email": "admin@jjrconstructions.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "16 Martel Road",
+        "addressLocality": "London",
+        "postalCode": "SE21 8EE",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.4460", 
+        "longitude": "-0.0380"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "£15,000 - £200,000+",
+      "description": "JJR Construction Ltd offers premium garden rooms, annexes, bathroom renovations, and full home renovations across London."
+    }
+    </script>
+
+    <!-- Favicon placeholder -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar" data-aos="fade-down">
-        <div class="container nav-flex">
-            <a href="#" class="logo-link"><img src="images/jjr-logo.png" alt="JJR Construction Logo"></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Our Work</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
-            </ul>
-            <button class="mobile-menu-btn" id="menuToggle">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Hero Section -->
-    <header class="hero"
-        style="background-image: linear-gradient(rgba(26, 43, 76, 0.8), rgba(26, 43, 76, 0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');">
-        <div class="container hero-content" data-aos="zoom-in" data-aos-duration="1000">
-            <h1>London's Premier Renovation Specialists</h1>
-            <p>Master craftsmanship for bathrooms, kitchens, and commercial fit-outs. Certified Gas Safe engineers.</p>
-            <a href="#contact" class="btn-primary">Start Your Project</a>
+    <!-- Sticky Header -->
+    <header class="site-header">
+        <div class="container header-flex">
+            <a href="#" class="logo" aria-label="JJR Construction Ltd Home">
+                JJR <span class="accent-text">Construction</span>
+            </a>
+
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#configurator">Design Yours</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-contact">
+                <a href="tel:+447424214992" class="btn btn-primary">Call 07424 214992</a>
+            </div>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services" class="section-light" data-aos="fade-up">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="grid-3">
-                <article class="card">
-                    <h3>Bathroom Renovations</h3>
-                    <p>Complete installation and tiling services. Modern designs for a refreshed London home.</p>
-                </article>
-                <article class="card">
-                    <h3>Kitchen Fitting</h3>
-                    <p>From planning to the final connection. We build functional and stylish kitchens.</p>
-                </article>
-                <article class="card">
-                    <h3>Plumbing & Gas Safe</h3>
-                    <p>Certified repairs, new installations, and boiler maintenance for peace of mind.</p>
-                </article>
-                <article class="card">
-                    <h3>Commercial Repairs</h3>
-                    <p>Reliable fit-outs and maintenance for London office and retail spaces.</p>
-                </article>
-                <article class="card">
-                    <h3>Full Renovations</h3>
-                    <p>Project management from the first brick to the final coat of paint.</p>
-                </article>
-            </div>
-        </div>
-    </section>
+    <main id="main-content">
 
-    <!-- Gallery Section (With Interactive Sliders) -->
-    <section id="gallery" class="section-dark">
-        <div class="container">
-            <h2 class="section-title white-text" data-aos="fade-down">Recent Work</h2>
-            <p class="subtitle white-text" data-aos="fade-up">Drag the slider to see the transformation.</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-flex">
+                <div class="hero-text">
+                    <h1>Expert Craftsmanship for London Living</h1>
+                    <p class="subheadline">We design and build bespoke garden rooms, annexes, and premium renovations.
+                        Extend your home without moving.</p>
+                    <p class="price-line"><strong>Starting from £15,000</strong></p>
 
-            <!-- Project 1 -->
-            <div class="comparison-container" data-aos="fade-up">
-                <!-- You must have images named bathroom-before.jpg and bathroom-after.jpg in your images folder -->
-                <img-comparison-slider>
-                    <img slot="first" src="images/bathroom-before.jpeg" alt="Before Renovation">
-                    <img slot="second" src="images/bathroom-after.jpeg" alt="After Renovation">
-                </img-comparison-slider>
-            </div>
+                    <div class="cta-group">
+                        <a href="#configurator" class="btn btn-primary">Design yours in 3D</a>
+                        <a href="https://wa.me/447424214992" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">WhatsApp Us</a>
+                    </div>
 
-            <!-- Project 2 -->
-            <div class="comparison-container" data-aos="fade-up" data-aos-delay="100">
-                <img-comparison-slider>
-                    <img slot="first" src="images/kitchen-before.jpeg" alt="Before Kitchen">
-                    <img slot="second" src="images/kitchen-after.jpeg" alt="After Kitchen">
-                </img-comparison-slider>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="comparison-container" data-aos="fade-up" data-aos-delay="200">
-                <img-comparison-slider>
-                    <img slot="first" src="images/commercial-before.jpeg" alt="Before Fit-out">
-                    <img slot="second" src="images/commercial-after.jpeg" alt="After Fit-out">
-                </img-comparison-slider>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-light" data-aos="fade-in">
-        <div class="container text-center">
-            <h2 class="section-title">Why Choose JJR Construction?</h2>
-            <div class="grid-3 about-grid">
-                <div class="feature-box">
-                    <h4>Local London Specialists</h4>
-                    <p>We know the city inside and out.</p>
+                    <p class="disclaimer-text small">*Final fixed pricing confirmed after a site survey.</p>
                 </div>
-                <div class="feature-box">
-                    <h4>Gas Safe Registered</h4>
-                    <p>Fully certified engineers for your safety.</p>
-                </div>
-                <div class="feature-box">
-                    <h4>Quality Guarantee</h4>
-                    <p>We stand by our craftsmanship.</p>
+                <div class="hero-image">
+                    <!-- Placeholder: Replace with your best CGI render -->
+                    <img src="https://source.unsplash.com/800x600/?garden-room,exterior"
+                        alt="Example of a premium garden room built by JJR Construction" loading="lazy">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-hero">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Contact Us</h2>
-            <p class="subtitle text-dark" style="color: #333;">Ready to start? Get a free quote for your renovation or
-                repair.</p>
+        <!-- Services Categories -->
+        <section id="services" class="section bg-cream">
+            <div class="container">
+                <h2 class="section-title">Our Bespoke Services</h2>
+                <p class="section-subtitle">Tailored solutions for homeowners across London.</p>
 
-            <div class="contact-box" data-aos="zoom-in-up">
-                <!-- Replace YOUR_FORM_ID with your Formspree ID -->
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                    <textarea name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-                    <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send
-                        Message</button>
+                <div class="service-grid">
+                    <div class="card service-card" data-service="garden-room">
+                        <img src="https://source.unsplash.com/400x300/?modern-exterior" alt="Garden Room Example">
+                        <h3>Garden Rooms</h3>
+                        <p>Bright, insulated spaces perfect for hobbies, relaxation, or guests.</p>
+                    </div>
+                    <div class="card service-card" data-service="garden-annexe">
+                        <img src="https://source.unsplash.com/400x300/?kitchen-exterior" alt="Garden Annexe Example">
+                        <h3>Garden Annexes</h3>
+                        <p>Self-contained living units with full plumbing and kitchenette options.</p>
+                    </div>
+                    <div class="card service-card" data-service="home-office">
+                        <img src="https://source.unsplash.com/400x300/?office-desk" alt="Home Office Example">
+                        <h3>Home Offices</h3>
+                        <p>A professional, distraction-free workspace within walking distance of your front door.</p>
+                    </div>
+                    <div class="card service-card" data-service="sauna-house">
+                        <img src="https://source.unsplash.com/400x300/?sauna-interior" alt="Sauna House Example">
+                        <h3>Sauna Houses</h3>
+                        <p>Premium timber construction with specialized heating and insulation.</p>
+                    </div>
+                    <div class="card service-card" data-service="spa-deck">
+                        <img src="https://source.unsplash.com/400x300/?decking-garden" alt="Spa Deck Example">
+                        <h3>Spa Decks</h3>
+                        <p>Composite or timber decking structures designed for outdoor wellness.</p>
+                    </div>
+                </div>
+
+                <div class="service-grid-alt mt-2">
+                    <!-- Second row of services -->
+                    <div class="card service-card" data-service="bathroom-renovations">
+                        <h3>Bathroom Renovations</h3>
+                        <p>Premium wet-room installations and luxury ensuite transformations.</p>
+                    </div>
+                    <div class="card service-card" data-service="full-renovations">
+                        <h3>Full Renovations</h3>
+                        <p>Kick-down to roof-top home transformations across London boroughs.</p>
+                    </div>
+                    <div class="card service-card" data-service="commercial-repairs">
+                        <h3>Commercial Repairs</h3>
+                        <p>Maintenance and refurbishment for shops, offices, and commercial spaces.</p>
+                    </div>
+                    <div class="card service-card" data-service="kitchen-fittings">
+                        <h3>Kitchen Fittings</h3>
+                        <p>Precision installation of high-end kitchens including plumbing and electrics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="section">
+            <div class="container why-us-grid">
+                <div class="why-content">
+                    <h2 class="section-title">Why Choose JJR Construction?</h2>
+                    <ul class="check-list">
+                        <li><span class="icon">✓</span> Craftsmanship-focused builders with years of London experience.
+                        </li>
+                        <li><span class="icon">✓</span> Fixed-price contracts written before we start—no hidden costs.
+                        </li>
+                        <li><span class="icon">✓</span> Premium materials: Cedar cladding, steel frames, and low-E
+                            double glazing.</li>
+                        <li><span class="icon">✓</span> We handle planning permissions (if required) and building
+                            regulations.</li>
+                    </ul>
+                </div>
+                <div class="why-image">
+                    <!-- Placeholder: Replace with a picture of your actual team or site -->
+                    <img src="https://source.unsplash.com/600x800/?construction-worker,building"
+                        alt="JJR Construction craftsman working on site" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section bg-charcoal text-white">
+            <div class="container">
+                <h2 class="section-title text-white">Our Recent Projects</h2>
+
+                <div class="filter-buttons">
+                    <button class="btn btn-outline active-filter" data-filter="all">All</button>
+                    <button class="btn btn-outline" data-filter="garden-room">Garden Rooms</button>
+                    <button class="btn btn-outline" data-filter="annexe">Annexes</button>
+                    <button class="btn btn-outline" data-filter="renovation">Renovations</button>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Gallery items. Use data-category for filtering -->
+                    <div class="gallery-item" data-category="garden-room">
+                        <img src="https://source.unsplash.com/600x400/?modern-house-garden"
+                            alt="Garden Room Project in Clapham">
+                    </div>
+                    <div class="gallery-item" data-category="annexe">
+                        <img src="https://source.unsplash.com/600x400/?garden-office-exterior"
+                            alt="Garden Annexe in Hampstead">
+                    </div>
+                    <div class="gallery-item" data-category="renovation">
+                        <img src="https://source.unsplash.com/600x400/?luxury-bathroom-reno"
+                            alt="Full Bathroom Renovation in Chelsea">
+                    </div>
+                    <div class="gallery-item" data-category="garden-room">
+                        <img src="https://source.unsplash.com/600x400/?timber-exterior"
+                            alt="Timber Garden Room in Dulwich">
+                    </div>
+                    <div class="gallery-item" data-category="renovation">
+                        <img src="https://source.unsplash.com/600x400/?kitchen-reno"
+                            alt="Kitchen Fitting Project in Kensington">
+                    </div>
+                    <!-- Lightbox trigger wrapper -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section">
+            <div class="container">
+                <h2 class="section-title">How We Build Your Space</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Design & Concept</h3>
+                        <p>We meet in your garden to discuss requirements and take measurements.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Survey & Quote</h3>
+                        <p>A fixed-price quote is issued. We check if planning permission is needed (we handle this).
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>The Build</h3>
+                        <p>We lay the foundations, erect the structure, and install utilities with minimal disruption.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Premium Finish</h3>
+                        <p>Insulation, electrics, cladding, and final painting. Hand-troweled internal finishes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <h3>Handover</h3>
+                        <p>We walk you through your new space and ensure it's exactly what you envisioned.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Configurator -->
+        <section id="configurator" class="section bg-cream">
+            <div class="container config-container">
+                <div class="config-header">
+                    <h2 class="section-title text-dark">Design Your Building</h2>
+                    <p>Instantly get an indicative price estimate for your project.</p>
+                    <p class="disclaimer-text"><strong>Note:</strong> These prices are estimates including VAT. Final
+                        fixed pricing is confirmed after a physical site survey.</p>
+                </div>
+
+                <form id="price-configurator" class="config-form">
+                    <div class="form-grid">
+                        <!-- Building Type -->
+                        <div class="form-group">
+                            <label for="bType">1. Choose Type</label>
+                            <select id="bType" name="building_type">
+                                <option value="garden-room">Garden Room (£600/sq ft base)</option>
+                                <option value="annexe">Garden Annexe (£750/sq ft base)</option>
+                                <option value="home-office">Home Office (£550/sq ft base)</option>
+                                <option value="sauna">Sauna House (£900/sq ft base)</option>
+                                <option value="spa-deck">Spa Deck (£400/sq ft base)</option>
+                            </select>
+                        </div>
+
+                        <!-- Dimensions -->
+                        <div class="form-group">
+                            <label for="bWidth">2. Width (meters): <span id="widthVal">3</span>m</label>
+                            <input type="range" id="bWidth" name="width" min="2" max="8" step="0.5" value="3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bDepth">3. Depth (meters): <span id="depthVal">3</span>m</label>
+                            <input type="range" id="bDepth" name="depth" min="2" max="10" step="0.5" value="3">
+                        </div>
+
+                        <!-- Cladding -->
+                        <div class="form-group">
+                            <label for="bCladding">4. Cladding Finish</label>
+                            <select id="bCladding" name="cladding">
+                                <option value="cedar">Western Red Cedar (Premium)</option>
+                                <option value="larch">Accoya Larch (Durable)</option>
+                                <option value="charred">Shou Sugi Ban (Charred)</option>
+                            </select>
+                        </div>
+
+                        <!-- Glazing -->
+                        <div class="form-group">
+                            <label for="bGlazing">5. Glazing Style</label>
+                            <select id="bGlazing" name="glazing">
+                                <option value="double">Standard Double Glazing (VAT In)</option>
+                                <option value="triple">Triple Glazing (+£1,200)</option>
+                                <option value="smart">Smart Glass (+£3,500)</option>
+                            </select>
+                        </div>
+
+                        <!-- Extras -->
+                        <div class="form-group full-width">
+                            <label>6. Optional Extras</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="extras" value="underfloor"> Underfloor Heating
+                                    (+£1,500)</label>
+                                <label><input type="checkbox" name="extras" value="loft-ladder"> Electric Loft Ladder
+                                    (+£800)</label>
+                                <label><input type="checkbox" name="extras" value="skylights"> Roof Skylights
+                                    (+£600)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Display -->
+                    <div class="price-display">
+                        <div class="price-box">
+                            <span class="area-text">Estimated Area: <strong id="areaCalc">9</strong> sq m</span>
+                            <h3>Total Indicative Price (Inc. VAT):</h3>
+                            <div class="price-amount" id="totalPrice">£15,000</div>
+                        </div>
+                    </div>
+
+                    <!-- Lead Capture Form within Configurator -->
+                    <div class="config-submit-area">
+                        <h4>Love this design? Get a fixed quote.</h4>
+                        <form id="lead-form" action="https://formspree.io/f/mvkabkpq" method="POST" class="inline-form">
+                            <!-- Hidden fields to populate from configurator -->
+                            <input type="hidden" name="Project_Details" id="email-summary">
+
+                            <div class="form-grid compact">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                                <input type="text" name="phone" placeholder="Phone Number" required>
+                                <input type="text" name="postcode" placeholder="Postcode" required>
+                                <input type="email" name="email" placeholder="Email Address" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary full-width">Get My Fixed Quote</button>
+                        </form>
+                    </div>
                 </form>
             </div>
-            <p style="margin-top: 20px;"><strong>Call us:</strong> 07424214992</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer data-aos="fade-in">
-        <div class="container">
-            <p>&copy; 2024 JJR Construction. Serving London, UK.</p>
-        </div>
-    </footer>
+        <!-- Testimonials -->
+        <section id="testimonials" class="section bg-cream">
+            <div class="container testimonial-grid">
+                <div class="card testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"JJR Construction built a stunning annex at the bottom of our garden. Professional, tidy, and
+                        exactly to spec."</p>
+                    <cite>— Sarah J., Hampstead</cite>
+                </div>
+                <div class="card testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"We needed a full renovation of our Victorian terrace. The team respected the property and
+                        finished on time."</p>
+                    <cite>— Mark T., Dulwich</cite>
+                </div>
+                <div class="card testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"The garden office has transformed our work life. Highly recommended for anyone considering a
+                        garden build."</p>
+                    <cite>— Priya K., Kensington</cite>
+                </div>
+            </div>
+        </section>
 
-    <!-- Scripts for Animations & Sliders -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@img-comparison-slider@8/dist/index.min.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 800, // How long the animation takes
-            once: true,     // Only animate once per load
-            offset: 100    // Start animation slightly before item appears
-        });
+        <!-- FAQ Accordion -->
+        <section class="section">
+            <div class="container faq-container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
 
-        // Mobile Menu Logic
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
+                <details class="faq-item">
+                    <summary>Do I need planning permission?</summary>
+                    <p>Most garden rooms fall under Permitted Development rights if they meet size and location
+                        criteria. We handle this assessment for you.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Are these buildings fully insulated?</summary>
+                    <p>Yes, all our garden rooms and annexes are built to building regulations with high-performance
+                        insulation suitable for year-round use.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What areas of London do you cover?</summary>
+                    <p>We cover all London boroughs. We have regularly worked in Hampstead, Chelsea, Clapham, and
+                        Dulwich, but we travel across Greater London.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How long does the build take?</summary>
+                    <p>A typical garden room takes 6-8 weeks from foundation to handover. Large annexes or full
+                        renovations may take 12-16 weeks.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h4>JJR Construction Ltd</h4>
+                    <p>Premium craftsmanship for London homeowners. Building your extra space without the hassle of
+                        moving.</p>
+                    <p><strong>Reg No:</strong> 15890513</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <address>
+                        16 Martel Road<br>
+                        London, SE21 8EE
+                    </address>
+                    <p><a href="tel:+447424214992">+44 7424 214992</a></p>
+                    <p><a href="mailto:admin@jjrconstructions.co.uk">admin@jjrconstructions.co.uk</a></p>
+                    <p>Mon to Fri: 08:00 - 18:00</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <!-- Placeholder Social Links -->
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Service Areas</h4>
+                    <ul class="service-list">
+                        <li>Hampstead & Camden</li>
+                        <li>Chelsea & Kensington</li>
+                        <li>Dulwich & South London</li>
+                        <li>All London Boroughs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 JJR Construction Ltd. All rights reserved.</p>
+                <nav>
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </nav>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox-modal" aria-hidden="true">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
