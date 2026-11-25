@@ -1,159 +1,170 @@
+/* =========================================
+   JJR Construction - Main JavaScript
+   ========================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Mobile Menu ---
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.main-nav');
-    menuBtn.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        const bars = document.querySelectorAll('.bar');
-        if (nav.classList.contains('active')) {
-            bars[0].style.transform = "rotate(45deg) translate(5px, 6px)";
-            bars[1].style.opacity = "0";
-            bars[2].style.transform = "rotate(-45deg) translate(5px, -6px)";
-        } else {
-            bars[0].style.transform = "none";
-            bars[1].style.opacity = "1";
-            bars[2].style.transform = "none";
-        }
-    });
+    // --- 1. Mobile Menu Toggle ---
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-    // --- Configurator Logic ---
-    const bType = document.getElementById('bType');
-    const bWidth = document.getElementById('bWidth');
-    const bDepth = document.getElementById('bDepth');
-    const bCladding = document.getElementById('bCladding');
-    const bGlazing = document.getElementById('bGlazing');
-
-    // Display values
-    const widthVal = document.getElementById('widthVal');
-    const depthVal = document.getElementById('depthVal');
-    const areaCalc = document.getElementById('areaCalc');
-    const totalPrice = document.getElementById('totalPrice');
-
-    // Extras checkboxes
-    const extras = document.querySelectorAll('input[name="extras"]');
-
-    // Base prices per sqm (indicative)
-    const BASE_PRICES = {
-        'garden-room': 600,
-        'annexe': 750,
-        'home-office': 550,
-        'sauna': 900,
-        'spa-deck': 400
-    };
-
-    function calculatePrice() {
-        // Dimensions
-        const w = parseFloat(bWidth.value);
-        const d = parseFloat(bDepth.value);
-
-        widthVal.textContent = w;
-        depthVal.textContent = d;
-
-        const area = w * d;
-        areaCalc.textContent = area.toFixed(1);
-
-        // Base Cost
-        const typeCost = BASE_PRICES[bType.value] * area;
-
-        // Extras Costs
-        let extrasCost = 0;
-        extras.forEach(box => {
-            if (box.checked) {
-                if (box.value === 'underfloor') extrasCost += 1500;
-                if (box.value === 'loft-ladder') extrasCost += 800;
-                if (box.value === 'skylights') extrasCost += 600;
-            }
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            const isActive = navLinks.classList.toggle('active');
+            // Accessibility support
+            mobileToggle.setAttribute('aria-expanded', isActive);
         });
 
-        // Cladding & Glazing adjustments (simplified multiplier or fixed)
-        let claddingCost = 0;
-        if (bCladding.value === 'cedar') claddingCost = area * 20; // £20/sqm premium
-        if (bCladding.value === 'charred') claddingCost = area * 35;
-
-        let glazingCost = 0;
-        if (bGlazing.value === 'triple') glazingCost += 1200;
-        if (bGlazing.value === 'smart') glazingCost += 3500;
-
-        // Total
-        const total = typeCost + extrasCost + claddingCost + glazingCost;
-
-        // Format currency
-        totalPrice.textContent = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(total);
-    }
-
-    // Attach event listeners to all inputs
-    [bType, bWidth, bDepth, bCladding, bGlazing].forEach(el => el.addEventListener('input', calculatePrice));
-    extras.forEach(box => box.addEventListener('change', calculatePrice));
-
-    // Initial calc
-    calculatePrice();
-
-    // --- Gallery Filter & Lightbox ---
-    const filterBtns = document.querySelectorAll('.filter-buttons .btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeLightbox = document.querySelector('.close-lightbox');
-
-    // Filters
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class
-            filterBtns.forEach(b => b.classList.remove('active-filter'));
-            btn.classList.add('active-filter');
-
-            const filter = btn.dataset.filter;
-
-            galleryItems.forEach(item => {
-                if (filter === 'all' || item.dataset.category === filter) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
                 }
             });
         });
+    }
+
+    // --- 2. Sticky Navbar Effect ---
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
 
-    // Lightbox
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            lightbox.classList.add('active');
-            lightboxImg.src = item.querySelector('img').src;
-            lightbox.setAttribute('aria-hidden', 'false');
+    // --- 3. Project Filtering System ---
+    // Note: For this to work, your HTML buttons need 'data-filter' attributes 
+    // (e.g., data-filter="all", data-filter="renovations") and project cards need 
+    // matching 'data-category' attributes.
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+
+    if (filterButtons.length > 0 && projects.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active to clicked button
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter') || 'all';
+
+                projects.forEach(project => {
+                    const category = project.getAttribute('data-category');
+
+                    if (filterValue === 'all' || filterValue === category) {
+                        project.style.display = 'block';
+                        // Simple fade animation
+                        setTimeout(() => {
+                            project.style.opacity = '1';
+                            project.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        project.style.display = 'none';
+                        project.style.opacity = '0';
+                        project.style.transform = 'scale(0.95)';
+                    }
+                });
+            });
+        });
+    }
+
+    // --- 4. FAQ Accordion ---
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+
+            // Close all other open items (Accordion style)
+            document.querySelectorAll('.faq-item').forEach(faqItem => {
+                if (faqItem !== item) {
+                    faqItem.classList.remove('active');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('active');
         });
     });
 
-    const hideLightbox = () => {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        lightboxImg.src = '';
-    };
-
-    closeLightbox.addEventListener('click', hideLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) hideLightbox();
-    });
-
-    // --- Smooth Scroll for Anchor Links ---
+    // --- 5. Smooth Scrolling for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            nav.classList.remove('active'); // Close mobile menu if open
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+
+            if (targetId === '#') return; // Don't scroll for empty hashes
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Ensure mobile menu is closed before scrolling
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 
-    // --- Populate Hidden Form Field for Formspree ---
-    const leadForm = document.getElementById('lead-form');
-    const hiddenInput = document.getElementById('email-summary');
+    // --- 6. Quote Form Handling (Simulation) ---
+    const quoteForm = document.querySelector('.contact-form') || document.querySelector('#quoteForm');
 
-    leadForm.addEventListener('submit', (e) => {
-        // Optional: Add a custom message to the email summary before sending
-        const type = bType.options[bType.selectedIndex].text;
-        const dims = `${bWidth.value}m x ${bDepth.value}m`;
-        hiddenInput.value = `Configurator Estimate - Type: ${type}, Size: ${dims}. I'd like a fixed quote.`;
-    });
+    if (quoteForm) {
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const submitBtn = quoteForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+
+            // Basic Validation Simulation
+            const requiredInputs = quoteForm.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#ef4444'; // Red border
+                } else {
+                    input.style.borderColor = ''; // Reset to CSS default
+                }
+            });
+
+            if (isValid) {
+                // Visual feedback for success
+                submitBtn.innerText = 'Sending...';
+                submitBtn.disabled = true;
+
+                // Simulate API call delay
+                setTimeout(() => {
+                    submitBtn.innerText = 'Message Sent!';
+                    submitBtn.style.background = '#10b981'; // Green
+                    submitBtn.style.color = '#fff';
+
+                    quoteForm.reset();
+
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                        submitBtn.style.color = '';
+                    }, 3000);
+                }, 1500);
+
+            } else {
+                alert('Please fill in all required fields to get a quote.');
+            }
+        });
+    }
 });
