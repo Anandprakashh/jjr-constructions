@@ -31,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 3. Project Filtering System ---
+    // --- 3. Project Filtering System (Updated for new categories) ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projects = document.querySelectorAll('.project-card');
 
     if (filterButtons.length > 0 && projects.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Remove active class from all buttons, add to clicked
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
@@ -46,16 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 projects.forEach(project => {
                     const category = project.getAttribute('data-category');
 
+                    // Check if the category matches or if "All" is selected
                     if (filterValue === 'all' || filterValue === category) {
                         project.style.display = 'block';
+
+                        // Simple entrance animation
                         setTimeout(() => {
                             project.style.opacity = '1';
                             project.style.transform = 'scale(1)';
                         }, 50);
                     } else {
-                        project.style.display = 'none';
+                        // Fade out then hide
                         project.style.opacity = '0';
                         project.style.transform = 'scale(0.95)';
+
+                        setTimeout(() => {
+                            project.style.display = 'none';
+                        }, 300); // Match CSS transition duration
                     }
                 });
             });
@@ -69,12 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', () => {
             const item = question.parentElement;
 
+            // Close other open items (optional behavior)
             document.querySelectorAll('.faq-item').forEach(faqItem => {
                 if (faqItem !== item) {
                     faqItem.classList.remove('active');
                 }
             });
 
+            // Toggle current item
             item.classList.toggle('active');
         });
     });
@@ -89,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                // Close mobile menu if open
                 if (navLinks && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                 }
@@ -114,9 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
             requiredInputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
-                    input.style.borderColor = '#ef4444';
+                    input.style.borderColor = '#ef4444'; // Red border for error
                 } else {
-                    input.style.borderColor = '';
+                    input.style.borderColor = ''; // Reset
                 }
             });
 
@@ -126,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     submitBtn.innerText = 'Message Sent!';
-                    submitBtn.style.background = '#10b981';
+                    submitBtn.style.background = '#10b981'; // Green success color
                     submitBtn.style.color = '#fff';
 
                     quoteForm.reset();
@@ -134,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         submitBtn.innerText = originalText;
                         submitBtn.disabled = false;
-                        submitBtn.style.background = '';
+                        submitBtn.style.background = ''; // Reset to CSS default
                         submitBtn.style.color = '';
                     }, 3000);
                 }, 1500);

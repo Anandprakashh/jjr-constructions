@@ -2,115 +2,119 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JJR Construction | London's Premium Renovation & Build Specialists</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-    <!-- Navigation -->
+    <!-- ==================== NAVIGATION ==================== -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="nav-logo">JJR<span>Construction</span></a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
-                <a href="#process">Process</a>
-                <a href="#about">About</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
-            </div>
-            <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
         <div class="container hero-content">
-            <h1>Premium Home Renovations & Construction Services in London</h1>
+            <h1>Premium Home Renovations &amp; Construction Services in London</h1>
             <p>From full home renovations to bespoke bathrooms, kitchens, and commercial fit-outs. Quality workmanship
                 delivered on time and on budget.</p>
             <div class="badges">
-                <span class="badge-item"><i class="fas fa-hard-hat"></i> Gas Safe Engineers</span>
-                <span class="badge-item"><i class="fas fa-shield-alt"></i> Fully Insured</span>
-                <span class="badge-item"><i class="fas fa-map-marker-alt"></i> London Based</span>
+                <span class="badge-item">&#9745; Gas Safe Engineers</span>
+                <span class="badge-item">&#9745; Fully Insured</span>
+                <span class="badge-item">&#9745; London Based</span>
             </div>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
-                <a href="#services" class="btn btn-outline">View Our Services</a>
+                <a href="#services" class="btn btn-outline" style="border-color:#fff;color:#fff;">View Our Services</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padding">
+    <!-- ==================== SERVICES ==================== -->
+    <section class="section-padding bg-light" id="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2 class="section-title">Comprehensive construction and renovation solutions tailored to your needs.
-                </h2>
+                <span class="section-tag">What We Do</span>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-desc">Comprehensive construction and renovation solutions tailored to your needs.</p>
             </div>
             <div class="services-grid">
 
+                <!-- Service 1 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <div class="service-icon">&#9873;</div>
                     <h3>Full Home Renovations</h3>
                     <p>Transform your entire home with our end-to-end renovation management. We handle structure,
                         finish, and everything in between.</p>
                     <ul class="service-features">
-                        <li>Structure & Extensions</li>
-                        <li>Damp & Brickwork</li>
+                        <li>Structure &amp; Extensions</li>
+                        <li>Damp &amp; Brickwork</li>
                         <li>Complete Refurbs</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
+                <!-- Service 2 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-bath"></i></div>
-                    <h3>Bathroom Design & Installation</h3>
+                    <div class="service-icon">&#128704;</div>
+                    <h3>Bathroom Design &amp; Installation</h3>
                     <p>Modern, water-tight, and beautifully finished bathrooms. From luxury en-suites to accessible
                         family bathrooms.</p>
                     <ul class="service-features">
                         <li>En-suite Installations</li>
                         <li>Shower Room Design</li>
-                        <li>Tiling & Plumbing</li>
+                        <li>Tiling &amp; Plumbing</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
+                <!-- Service 3 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                    <h3>Kitchen Design & Installation</h3>
+                    <div class="service-icon">&#127869;</div>
+                    <h3>Kitchen Design &amp; Installation</h3>
                     <p>The heart of your home, expertly installed. We work with all major kitchen manufacturers or
                         design bespoke.</p>
                     <ul class="service-features">
-                        <li>Carpentry & Joinery</li>
-                        <li>Electrical & Plumbing</li>
+                        <li>Carpentry &amp; Joinery</li>
+                        <li>Electrical &amp; Plumbing</li>
                         <li>Tile Work</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
+                <!-- Service 4 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-hammer"></i></div>
-                    <h3>Roof Renovations & Repairs</h3>
+                    <div class="service-icon">&#127963;</div>
+                    <h3>Roof Renovations &amp; Repairs</h3>
                     <p>Protect your home with expert roofing services. From minor repairs to full re-roofs and flat
                         roofing solutions.</p>
                     <ul class="service-features">
                         <li>Flat Roofing</li>
                         <li>Roof Repairs</li>
-                        <li>Gutters & Fascias</li>
+                        <li>Gutters &amp; Fascias</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
+                <!-- Service 5 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Commercial Repairs & Fit-Outs</h3>
+                    <div class="service-icon">&#127970;</div>
+                    <h3>Commercial Repairs &amp; Fit-Outs</h3>
                     <p>Minimise downtime with efficient commercial projects. We deliver office fit-outs, shop fronts,
                         and maintenance.</p>
                     <ul class="service-features">
@@ -118,12 +122,13 @@
                         <li>Shop Fit-outs</li>
                         <li>Maintenance Contracts</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
+                <!-- Service 6 -->
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
-                    <h3>Interior Design & Build</h3>
+                    <div class="service-icon">&#127912;</div>
+                    <h3>Interior Design &amp; Build</h3>
                     <p>Bridging the gap between design and construction. We help realise your vision from concept to
                         completion.</p>
                     <ul class="service-features">
@@ -131,321 +136,434 @@
                         <li>Material Selection</li>
                         <li>Custom Features</li>
                     </ul>
-                    <a href="#contact" class="link-arrow">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="link-arrow">Get a Quote &#8594;</a>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="about" class="section-padding bg-light">
-        <div class="container">
-            <div class="features-split">
-                <div class="features-text">
-                    <span class="section-tag">Why Choose JJR Construction?</span>
-                    <h2 class="section-title">Trusted craftsmanship with professional project management.</h2>
-                    <p class="section-desc">We understand that inviting tradespeople into your home or business requires
-                        trust. We combine skilled craftsmanship with professional project management to deliver a
-                        stress-free experience.</p>
-                </div>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div class="feature-text">
-                            <h4>Experienced, skilled tradespeople</h4>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div class="feature-text">
-                            <h4>Clear communication & fixed pricing</h4>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div class="feature-text">
-                            <h4>Gas Safe registered engineers</h4>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div class="feature-text">
-                            <h4>Fully insured & compliant</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section-padding">
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="section-padding" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Recent Projects</span>
-                <h2 class="section-title">A selection of our latest renovations and builds across London.</h2>
+                <span class="section-tag">Why JJR</span>
+                <h2 class="section-title">Why Choose JJR Construction?</h2>
+                <p class="section-desc">Trusted craftsmanship with professional project management. We combine skilled
+                    tradespeople with transparent communication to deliver a stress-free experience.</p>
             </div>
-
-            <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="renovations">Renovations</button>
-                <button class="filter-btn" data-filter="bathrooms">Bathrooms</button>
-                <button class="filter-btn" data-filter="kitchens">Kitchens</button>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card" data-category="renovations">
-                    <div class="project-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <span>Kensington Renovation</span>
+            <div class="features-split">
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9733;</div>
+                        <div class="feature-text">
+                            <h4>Experienced, skilled tradespeople</h4>
+                            <p>Vetted professionals with years of London renovation experience.</p>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>Kensington Full Renovation</h3>
-                        <p>Detailed build, plumbing, electrics, and finishes.</p>
-                        <a href="#" class="link-arrow">View Project <i class="fas fa-arrow-right"></i></a>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9745;</div>
+                        <div class="feature-text">
+                            <h4>Clear communication &amp; fixed pricing</h4>
+                            <p>Detailed scope and written quotation before any work begins.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9881;</div>
+                        <div class="feature-text">
+                            <h4>Gas Safe registered engineers</h4>
+                            <p>All gas work carried out by qualified, registered professionals.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#128737;</div>
+                        <div class="feature-text">
+                            <h4>Fully insured &amp; compliant</h4>
+                            <p>Complete public liability and professional indemnity coverage.</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="project-card" data-category="bathrooms">
-                    <div class="project-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span>Crouch End En-Suite</span>
-                    </div>
-                    <div class="project-info">
-                        <h3>Crouch End En-Suite</h3>
-                        <p>Premium tiling and wet room installation.</p>
-                        <a href="#" class="link-arrow">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="kitchens">
-                    <div class="project-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <span>Camden Kitchen Remodel</span>
-                    </div>
-                    <div class="project-info">
-                        <h3>Camden Kitchen Remodel</h3>
-                        <p>Carpentry, plumbing and electrical work.</p>
-                        <a href="#" class="link-arrow">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="features-image">
+                    <!-- Replace src with a real JJR team or site photo -->
+                    <img src="[REPLACE — Insert JJR team / site photo]" alt="JJR Construction team at work"
+                        style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="process" class="section-padding bg-light">
+    <!-- ==================== PROJECTS / PORTFOLIO ==================== -->
+    <section class="section-padding bg-light" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Work</span>
+                <h2 class="section-title">Recent Projects</h2>
+                <p class="section-desc">A selection of our latest renovations and builds across London.</p>
+
+                <!-- DISCLAIMER -->
+                <p style="margin-top:1rem;font-size:0.85rem;color:#94a3b8;">
+                    &#128270; Project images and details shown are examples only until replaced with verified client
+                    work.
+                </p>
+            </div>
+
+            <!-- FILTER TABS — UPDATED CATEGORIES -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="full-renovations">Full Renovations</button>
+                <button class="filter-btn" data-filter="bathrooms">Bathrooms</button>
+                <button class="filter-btn" data-filter="kitchens">Kitchens</button>
+                <button class="filter-btn" data-filter="roofing">Roofing</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="interior-design">Interior Design</button>
+            </div>
+
+            <!-- PROJECTS GRID -->
+            <div class="projects-grid">
+
+                <!-- ====== Project card: example placeholder ====== -->
+                <div class="project-card" data-category="full-renovations">
+                    <div class="project-img-comparison">
+                        <!-- BEFORE / AFTER split — replace src with real photos -->
+                        <img src="[REPLACE — Before photo]" alt="Before — Kensington full renovation"
+                            class="img-before" />
+                        <img src="[REPLACE — After photo]" alt="After  — Kensington full renovation"
+                            class="img-after" />
+                    </div>
+                    <span class="placeholder-label">&#128203; Example placeholder &mdash; replace with real
+                        project</span>
+                    <div class="project-info">
+                        <h3>Kensington Full Renovation</h3>
+                        <p class="project-location">&#128205; Kensington, London</p>
+                        <span class="project-category-badge full-renovations">Full Renovations</span>
+                        <p class="project-scope">Detailed build, plumbing, electrics, and finishes.</p>
+                        <p class="project-duration"><strong>Duration:</strong> 14 weeks</p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top:0.75rem;">View Case Study
+                            &#8594;</a>
+                    </div>
+                </div>
+
+                <!-- ====== Project card: example placeholder ====== -->
+                <div class="project-card" data-category="bathrooms">
+                    <div class="project-img-comparison">
+                        <img src="[REPLACE — Before photo]" alt="Before — Crouch End en-suite" class="img-before" />
+                        <img src="[REPLACE — After photo]" alt="After  — Crouch End en-suite" class="img-after" />
+                    </div>
+                    <span class="placeholder-label">&#128203; Example placeholder &mdash; replace with real
+                        project</span>
+                    <div class="project-info">
+                        <h3>Crouch End En-Suite</h3>
+                        <p class="project-location">&#128205; Crouch End, London</p>
+                        <span class="project-category-badge bathrooms">Bathroom</span>
+                        <p class="project-scope">Premium tiling and wet room installation.</p>
+                        <p class="project-duration"><strong>Duration:</strong> 3 weeks</p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top:0.75rem;">View Case Study
+                            &#8594;</a>
+                    </div>
+                </div>
+
+                <!-- ====== Project card: example placeholder ====== -->
+                <div class="project-card" data-category="kitchens">
+                    <div class="project-img-comparison">
+                        <img src="[REPLACE — Before photo]" alt="Before — Camden kitchen remodel" class="img-before" />
+                        <img src="[REPLACE — After photo]" alt="After  — Camden kitchen remodel" class="img-after" />
+                    </div>
+                    <span class="placeholder-label">&#128203; Example placeholder &mdash; replace with real
+                        project</span>
+                    <div class="project-info">
+                        <h3>Camden Kitchen Remodel</h3>
+                        <p class="project-location">&#128205; Camden, London</p>
+                        <span class="project-category-badge kitchens">Kitchen</span>
+                        <p class="project-scope">Carpentry, plumbing and electrical work.</p>
+                        <p class="project-duration"><strong>Duration:</strong> 6 weeks</p>
+                        <a href="#" class="btn btn-sm btn-outline" style="margin-top:0.75rem;">View Case Study
+                            &#8594;</a>
+                    </div>
+                </div>
+
+            </div><!-- /.projects-grid -->
+        </div>
+    </section>
+
+    <!-- ==================== PROCESS ==================== -->
+    <section class="section-padding" id="process">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">How We Work</span>
-                <h2 class="section-title">A transparent, structured process to take the stress out of building.</h2>
+                <h2 class="section-title">A Transparent Process</h2>
+                <p class="section-desc">From first call to final handover — we keep you informed every step of the way.
+                </p>
             </div>
             <div class="process-steps">
+
                 <div class="process-card">
                     <div class="step-number">01</div>
                     <h3>Consultation</h3>
                     <p>We meet to discuss your vision, needs, and budget. Free initial advice.</p>
                 </div>
+
                 <div class="process-card">
                     <div class="step-number">02</div>
-                    <h3>Survey & Scope</h3>
+                    <h3>Survey &amp; Scope</h3>
                     <p>We visit the site to create a detailed technical scope and fixed quotation.</p>
                 </div>
+
                 <div class="process-card">
                     <div class="step-number">03</div>
-                    <h3>Design & Prep</h3>
+                    <h3>Design &amp; Prep</h3>
                     <p>We order materials, plan schedules, and prepare the site for work.</p>
                 </div>
+
                 <div class="process-card">
                     <div class="step-number">04</div>
                     <h3>The Build</h3>
                     <p>Our tradespeople execute the works with regular updates and quality checks.</p>
                 </div>
+
                 <div class="process-card">
                     <div class="step-number">05</div>
                     <h3>Completion</h3>
                     <p>Final snagging, cleanup, and handover with full documentation.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="section-padding">
+    <!-- ==================== TESTIMONIALS / REVIEWS ==================== -->
+    <section class="section-padding bg-light" id="reviews">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">What Our Clients Say</span>
-                <h2 class="section-title">We are dedicated to quality and customer satisfaction.</h2>
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-desc">We are dedicated to quality and customer satisfaction.</p>
+
+                <!-- Placeholder disclaimer for reviews -->
+                <p style="margin-top:1rem;font-size:0.85rem;color:#94a3b8;">
+                    &#128203; These testimonials are placeholders — replace with verified client reviews.
+                </p>
             </div>
+
             <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"JJR transformed our outdated kitchen into a modern space. The team
-                        was professional and tidy."</p>
+
+                <!-- ====== Testimonial placeholder 1 ====== -->
+                <div class="testimonial-card" data-placeholder="true">
+                    <div class="testimonial-content">
+                        "JJR transformed our outdated kitchen into a modern space. The team was professional and tidy."
+                    </div>
                     <div class="client-info">
-                        <h4>- Client Name</h4>
+                        <h4>— Client Name</h4>
                         <p>London</p>
                     </div>
+                    <span class="placeholder-label">&#128203; Example placeholder — replace with real client
+                        review</span>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"Excellent work on our bathroom renovation. They finished on time and
-                        within budget."</p>
+
+                <!-- ====== Testimonial placeholder 2 ====== -->
+                <div class="testimonial-card" data-placeholder="true">
+                    <div class="testimonial-content">
+                        "Excellent work on our bathroom renovation. They finished on time and within budget."
+                    </div>
                     <div class="client-info">
-                        <h4>- Client Name</h4>
+                        <h4>— Client Name</h4>
                         <p>London</p>
                     </div>
+                    <span class="placeholder-label">&#128203; Example placeholder — replace with real client
+                        review</span>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"Very reliable for commercial maintenance work. Highly recommended."
-                    </p>
-                    <div class="client-info">
-                        <h4>- Property Manager</h4>
+
+                <!-- ====== Testimonial placeholder 3 ====== -->
+                <div class="testimonial-card" data-placeholder="true">
+                    <div class="testimonial-content">
+                        "Very reliable for commercial maintenance work. Highly recommended."
                     </div>
+                    <div class="client-info">
+                        <h4>— Property Manager</h4>
+                        <p></p>
+                    </div>
+                    <span class="placeholder-label">&#128203; Example placeholder — replace with real client
+                        review</span>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="section-padding bg-light">
+    <!-- ==================== FAQ ==================== -->
+    <section class="section-padding" id="faq">
         <div class="container">
             <div class="section-header">
+                <span class="section-tag">FAQ</span>
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
             <div class="faq-container">
+
                 <div class="faq-item">
-                    <button class="faq-question">Do you provide free quotes? <span class="faq-icon">+</span></button>
+                    <button class="faq-question">Do you provide free quotes? <span
+                            class="faq-icon">&#43;</span></button>
                     <div class="faq-answer">
                         <p>Yes. We offer free initial consultations and quotations for most projects in London.</p>
                     </div>
                 </div>
+
                 <div class="faq-item">
                     <button class="faq-question">Do you handle design as well as construction? <span
-                            class="faq-icon">+</span></button>
+                            class="faq-icon">&#43;</span></button>
                     <div class="faq-answer">
                         <p>Yes, we can manage the full end-to-end process including space planning, material selection,
                             and technical design.</p>
                     </div>
                 </div>
+
                 <div class="faq-item">
                     <button class="faq-question">Are your engineers Gas Safe registered? <span
-                            class="faq-icon">+</span></button>
+                            class="faq-icon">&#43;</span></button>
                     <div class="faq-answer">
                         <p>Absolutely. All our gas work is carried out by Gas Safe registered engineers.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact / Quote Section -->
-    <section id="contact" class="section-padding">
+    <!-- ==================== CONTACT / QUOTE FORM ==================== -->
+    <section class="section-padding bg-light" id="contact">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info-card">
-                    <h2 class="section-title" style="color:white; font-size: 2rem; margin-bottom: 1.5rem;">Get a Free
-                        Quote</h2>
-                    <p class="section-desc" style="color: #cbd5e1; margin-bottom: 2rem;">Ready to start your project?
-                        Fill out the form or contact us directly.</p>
-                    <div class="contact-method">
-                        <div class="contact-icon-box"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <strong>07424 214 992</strong>
-                            <span>Call Us</span>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon-box"><i class="fab fa-whatsapp"></i></div>
-                        <div>
-                            <strong>Chat with us</strong>
-                            <span>WhatsApp</span>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <strong>admin@jjrconstructions.co.uk</strong>
-                            <span>Email</span>
-                        </div>
-                    </div>
-                </div>
-
-                <form class="quote-form contact-form">
-                    <h3 style="margin-bottom: 1.5rem;">Tell us about your project</h3>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label>Select Service</label>
-                            <select name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="full-renovation">Full Home Renovation</option>
-                                <option value="bathroom">Bathroom Installation</option>
-                                <option value="kitchen">Kitchen Installation</option>
-                                <option value="roof">Roof Repairs/Installation</option>
-                                <option value="commercial">Commercial Fit-out</option>
-                                <option value="other">Other / General Repair</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Approximate Budget</label>
-                            <select name="budget" required>
-                                <option value="">Select budget range</option>
-                                <option value="under-5k">Under £5,000</option>
-                                <option value="5-10k">£5,000 - £10,000</option>
-                                <option value="10-25k">£10,000 - £25,000</option>
-                                <option value="over-25k">Over £25,000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address *</label>
-                            <input type="email" placeholder="john@example.com" required>
-                        </div>
-                        <div class="form-group full">
-                            <label>Project Details</label>
-                            <textarea rows="5" placeholder="Describe your project..."></textarea>
-                        </div>
-                        <div class="form-group full text-center">
-                            <button type="submit" class="btn btn-primary">Send Enquiry</button>
-                            <p style="margin-top:1rem; font-size: 0.85rem; color:#64748b;">* Final pricing is subject to
-                                site survey and detailed scope of works.</p>
-                        </div>
-                    </div>
-                </form>
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h2 class="section-title">Get a Free Quote</h2>
+                <p class="section-desc">Ready to start your project? Fill out the form or contact us directly.</p>
             </div>
+
+            <div class="contact-grid">
+
+                <!-- Contact info -->
+                <div class="contact-info-card">
+                    <h3 style="color:#fff;margin-bottom:2rem;">Contact Us</h3>
+
+                    <div class="contact-method">
+                        <div class="contact-icon-box">&#128222;</div>
+                        <div>
+                            <strong>Call Us</strong>
+                            <span>07424 214 992</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon-box">&#128172;</div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <span>Chat with us</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon-box">&#9993;</div>
+                        <div>
+                            <strong>Email</strong>
+                            <span>admin@jjrconstructions.co.uk</span>
+                        </div>
+                    </div>
+
+                </div><!-- /contact-info-card -->
+
+                <!-- Quote form -->
+                <div class="form-card">
+                    <h3 style="color:var(--primary);margin-bottom:1.5rem;">Tell us about your project</h3>
+                    <form class="contact-form" id="quoteForm" novalidate>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="service">Select Service</label>
+                                <select id="service" name="service" required>
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option>Full Home Renovation</option>
+                                    <option>Bathroom Installation</option>
+                                    <option>Kitchen Installation</option>
+                                    <option>Roof Repairs / Installation</option>
+                                    <option>Commercial Fit-out</option>
+                                    <option>Other / General Repair</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Approximate Budget</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="" disabled selected>Select budget range</option>
+                                    <option>Under £5,000</option>
+                                    <option>£5,000 – £10,000</option>
+                                    <option>£10,000 – £25,000</option>
+                                    <option>Over £25,000</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="message">Project Details</label>
+                                <textarea id="message" name="message" rows="5"></textarea>
+                            </div>
+
+                        </div><!-- /form-grid -->
+
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Enquiry</button>
+                        <p style="margin-top:1rem;font-size:0.8rem;color:#94a3b8;">* Final pricing is subject to site
+                            survey and detailed scope of works.</p>
+                    </form>
+                </div><!-- /form-card -->
+
+            </div><!-- /contact-grid -->
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="footer-logo">JJR<span>Construction</span></a>
+
+                <div>
+                    <span class="footer-logo">JJR<span>Construction</span></span>
                     <p>Premium renovation and construction services in London. Quality workmanship, Gas Safe engineers.
                     </p>
-                    <p>Company Reg: [Insert Number]</p>
                 </div>
-                <div class="footer-col">
+
+                <div>
                     <h4>Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Full Renovations</a></li>
-                        <li><a href="#">Bathrooms & Kitchens</a></li>
-                        <li><a href="#">Roofing</a></li>
-                        <li><a href="#">Commercial Fit-Outs</a></li>
+                        <li><a href="#services">Full Renovations</a></li>
+                        <li><a href="#services">Bathrooms &amp; Kitchens</a></li>
+                        <li><a href="#services">Roofing</a></li>
+                        <li><a href="#services">Commercial Fit-Outs</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+
+                <div>
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li>07424 214 992</li>
-                        <li>admin@jjrconstructions.co.uk</li>
-                        <li>London, United Kingdom</li>
+                        <li>&#128222; 07424 214 992</li>
+                        <li>&#9993; admin@jjrconstructions.co.uk</li>
+                        <li>&#128205; London, United Kingdom</li>
                     </ul>
                 </div>
-            </div>
+
+            </div><!-- /footer-grid -->
+
+            <!-- Company reg placeholder — update with real number -->
+            <p style="font-size:0.8rem;color:#64748b;margin-bottom:1rem;">Company Reg: [Insert Number]</p>
+
             <div class="footer-bottom">
-                &copy; JJR Construction. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
-                    Business</a>
+                <p>&copy; JJR Construction. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                        Business</a></p>
             </div>
         </div>
     </footer>
