@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jjrconstructions.co.uk/sitemap.xml
+
+# Prevent crawling of duplicate assets if needed (optional)
+Disallow: /assets/placeholder/
