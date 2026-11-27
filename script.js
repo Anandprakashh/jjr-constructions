@@ -31,14 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 3. Project Filtering System (Updated for new categories) ---
+    // --- 3. Project Filtering System ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projects = document.querySelectorAll('.project-card');
 
     if (filterButtons.length > 0 && projects.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons, add to clicked
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
@@ -47,23 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 projects.forEach(project => {
                     const category = project.getAttribute('data-category');
 
-                    // Check if the category matches or if "All" is selected
                     if (filterValue === 'all' || filterValue === category) {
                         project.style.display = 'block';
-
-                        // Simple entrance animation
                         setTimeout(() => {
                             project.style.opacity = '1';
                             project.style.transform = 'scale(1)';
                         }, 50);
                     } else {
-                        // Fade out then hide
                         project.style.opacity = '0';
                         project.style.transform = 'scale(0.95)';
 
                         setTimeout(() => {
                             project.style.display = 'none';
-                        }, 300); // Match CSS transition duration
+                        }, 300);
                     }
                 });
             });
@@ -77,14 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', () => {
             const item = question.parentElement;
 
-            // Close other open items (optional behavior)
             document.querySelectorAll('.faq-item').forEach(faqItem => {
                 if (faqItem !== item) {
                     faqItem.classList.remove('active');
                 }
             });
 
-            // Toggle current item
             item.classList.toggle('active');
         });
     });
@@ -99,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Close mobile menu if open
                 if (navLinks && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                 }
@@ -109,49 +101,167 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 6. Quote Form Handling (Simulation) ---
-    const quoteForm = document.querySelector('.contact-form') || document.querySelector('#quoteForm');
+    // --- 6. Quote Form Handling (Formspree Integration) ---
+    const quoteForm = document.getElementById('quoteForm');
 
     if (quoteForm) {
-        quoteForm.addEventListener('submit', (e) => {
-            e.preventDefault();
 
-            const submitBtn = quoteForm.querySelector('button[type="submit"]');
+        // Helper: Clear all validation errors
+        function clearErrors() {
+            document.querySelectorAll('.form-group').forEach(group => group.classList.remove('invalid'));
+            document.querySelectorAll('.error-message').forEach(msg => msg.textContent = '');
+            const successMsg = document.getElementById('formSuccessMsg');
+            const errorMsg = document.getElementById('formErrorMsg');
+            if (successMsg) successMsg.style.display = 'none';
+            if (errorMsg) errorMsg.style.display = 'none';
+        }
+
+        // Helper: Show error for a specific field
+        function showFieldError(fieldId, message) {
+            const group = document.querySelector(`label[for="${fieldId}"]`).closest('.form-group');
+            const msgBox = document.getElementById(`${fieldId}Error`);
+            if (group && msgBox) {
+                group.classList.add('invalid');
+                msgBox.textContent = message;
+            }
+        }
+
+        // Helper: Validate Email format
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Helper: Validate UK Phone (loosely handles various formats)
+        function isValidPhone(phone) {
+            return phone.replace(/\D/g, '').length >= 7;
+        }
+
+        quoteForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            const submitBtn = document.getElementById('submitBtn');
             const originalText = submitBtn.innerText;
 
-            const requiredInputs = quoteForm.querySelectorAll('input[required], textarea[required]');
+            // 1. Honeypot Check (Bot Protection)
+            if (quoteForm.querySelector('[name="_gotcha"]').value !== "") return;
+
+            // 2. Get Values
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const postcode = document.getElementById('postcode').value.trim();
+            const service = document.getElementById('service').value;
+            const propertyType = document.getElementById('propertyType').value;
+            const budget = document.getElementById('budget').value;
+            const contactMethod = document.getElementById('contactMethod').value;
+            const details = document.getElementById('projectDetails').value.trim();
+            const consent = document.getElementById('consent').checked;
+
             let isValid = true;
 
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
+            // 3. Validation Checks
+            if (!fullName) { showFieldError('fullName', 'Please enter your name.'); isValid = false; }
+
+            if (!email || !isValidEmail(email)) {
+                showFieldError('email', 'Please enter a valid email address.');
+                isValid = false;
+            }
+
+            if (!phone || !isValidPhone(phone)) {
+                showFieldError('phone', 'Please enter a valid phone number.');
+                isValid = false;
+            }
+
+            if (postcode) {
+                // Basic UK Postcode Regex validation
+                const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
+                if (!postcodeRegex.test(postcode)) {
+                    showFieldError('postcode', 'Please enter a valid UK Postcode.');
                     isValid = false;
-                    input.style.borderColor = '#ef4444'; // Red border for error
-                } else {
-                    input.style.borderColor = ''; // Reset
                 }
-            });
+            } else {
+                showFieldError('postcode', 'Postcode is required.');
+                isValid = false;
+            }
 
-            if (isValid) {
-                submitBtn.innerText = 'Sending...';
-                submitBtn.disabled = true;
+            if (!service) { showFieldError('service', 'Please select a service.'); isValid = false; }
+            if (!propertyType) { showFieldError('propertyType', 'Please select property type.'); isValid = false; }
+            if (!budget) { showFieldError('budget', 'Please select a budget range.'); isValid = false; }
+            if (!contactMethod) { showFieldError('contactMethod', 'Please select contact method.'); isValid = false; }
 
-                setTimeout(() => {
-                    submitBtn.innerText = 'Message Sent!';
-                    submitBtn.style.background = '#10b981'; // Green success color
-                    submitBtn.style.color = '#fff';
+            if (!details) { showFieldError('projectDetails', 'Please describe your project.'); isValid = false; }
+            if (!consent) {
+                const consentGroup = document.getElementById('consent').closest('.form-group');
+                const consentMsg = document.getElementById('consentError');
+                if (consentGroup && consentMsg) {
+                    consentGroup.classList.add('invalid');
+                    consentMsg.textContent = 'You must agree to be contacted.';
+                }
+                isValid = false;
+            }
 
+            if (!isValid) return;
+
+            // 4. Submission Preparation
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(quoteForm);
+            // Append the Formspree identifier for routing
+            formData.append('_form-name', 'jjr-quote-form');
+
+            try {
+                const response = await fetch(quoteForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success State
+                    const successMsg = document.getElementById('formSuccessMsg');
+                    successMsg.style.display = 'block';
                     quoteForm.reset();
 
-                    setTimeout(() => {
-                        submitBtn.innerText = originalText;
-                        submitBtn.disabled = false;
-                        submitBtn.style.background = ''; // Reset to CSS default
-                        submitBtn.style.color = '';
-                    }, 3000);
-                }, 1500);
+                    // Scroll to message
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            } else {
-                alert('Please fill in all required fields to get a quote.');
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitBtn.innerText = 'Sent Successfully!';
+                        submitBtn.style.backgroundColor = '#10b981'; // Green
+                        submitBtn.style.borderColor = '#10b981';
+
+                        setTimeout(() => {
+                            submitBtn.innerText = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.backgroundColor = '';
+                            submitBtn.style.borderColor = '';
+                            successMsg.style.display = 'none'; // Hide message after a while
+                        }, 3000);
+                    }, 2000);
+
+                } else {
+                    // Formspree Error State (e.g., invalid form key)
+                    const data = await response.json();
+                    if (Object.hasOwn(data, 'errors')) {
+                        throw new Error(data.errors.map(error => error.message).join(", "));
+                    } else {
+                        throw new Error('Oops! There was a problem submitting your form.');
+                    }
+                }
+
+            } catch (error) {
+                // General Network/Server Error
+                const errorMsg = document.getElementById('formErrorMsg');
+                errorMsg.innerText = error.message;
+                errorMsg.style.display = 'block';
+
+                submitBtn.innerText = 'Try Again';
+                submitBtn.disabled = false;
             }
         });
     }

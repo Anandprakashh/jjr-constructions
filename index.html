@@ -427,102 +427,193 @@
         </div>
     </section>
 
-    <!-- ==================== CONTACT / QUOTE FORM ==================== -->
-    <section class="section-padding bg-light" id="contact">
+    <!-- ============================
+     CONTACT / QUOTE FORM SECTION
+     ============================ -->
+    <section id="contact" class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Get in Touch</span>
-                <h2 class="section-title">Get a Free Quote</h2>
-                <p class="section-desc">Ready to start your project? Fill out the form or contact us directly.</p>
+                <span class="section-tag">Get a Free Quote</span>
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-desc">Ready to start your project? Fill out the form below or contact us directly.</p>
             </div>
 
             <div class="contact-grid">
-
-                <!-- Contact info -->
+                <!-- Contact info card -->
                 <div class="contact-info-card">
-                    <h3 style="color:#fff;margin-bottom:2rem;">Contact Us</h3>
-
+                    <h3>Contact Us</h3>
+                    <br>
                     <div class="contact-method">
-                        <div class="contact-icon-box">&#128222;</div>
+                        <div class="contact-icon-box">📞</div>
                         <div>
                             <strong>Call Us</strong>
                             <span>07424 214 992</span>
                         </div>
                     </div>
-
                     <div class="contact-method">
-                        <div class="contact-icon-box">&#128172;</div>
+                        <div class="contact-icon-box">💬</div>
                         <div>
                             <strong>WhatsApp</strong>
                             <span>Chat with us</span>
                         </div>
                     </div>
-
                     <div class="contact-method">
-                        <div class="contact-icon-box">&#9993;</div>
+                        <div class="contact-icon-box">✉</div>
                         <div>
                             <strong>Email</strong>
                             <span>admin@jjrconstructions.co.uk</span>
                         </div>
                     </div>
+                </div>
 
-                </div><!-- /contact-info-card -->
-
-                <!-- Quote form -->
+                <!-- Contact Form (Formspree) -->
                 <div class="form-card">
-                    <h3 style="color:var(--primary);margin-bottom:1.5rem;">Tell us about your project</h3>
-                    <form class="contact-form" id="quoteForm" novalidate>
+                    <!-- Replace YOUR_FORM_ID with your actual Formspree form ID -->
+                    <form class="contact-form" id="quoteForm" action="https://formspree.io/f/mvkabkpq" method="POST"
+                        enctype="multipart/form-data" novalidate>
+                        <!-- Honeypot — hidden field to prevent spam bots -->
+                        <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off"
+                            aria-hidden="true">
+
+                        <!-- Hidden form-name for Formspree -->
+                        <input type="hidden" name="_form-name" value="jjr-quote-form">
 
                         <div class="form-grid">
-
+                            <!-- Full Name (required) -->
                             <div class="form-group">
-                                <label for="service">Select Service</label>
-                                <select id="service" name="service" required>
-                                    <option value="" disabled selected>Select a service</option>
-                                    <option>Full Home Renovation</option>
-                                    <option>Bathroom Installation</option>
-                                    <option>Kitchen Installation</option>
-                                    <option>Roof Repairs / Installation</option>
-                                    <option>Commercial Fit-out</option>
-                                    <option>Other / General Repair</option>
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="full_name" required
+                                    placeholder="e.g. John Smith">
+                                <span class="error-message" id="fullNameError" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Phone Number (required) -->
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required placeholder="e.g. 07123 456789"
+                                    pattern="[0-9\s\+\-\(\)]{8,20}">
+                                <span class="error-message" id="phoneError" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Email (required) -->
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required
+                                    placeholder="e.g. john@example.com">
+                                <span class="error-message" id="emailError" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Postcode (required) -->
+                            <div class="form-group">
+                                <label for="postcode">Postcode <span class="required">*</span></label>
+                                <input type="text" id="postcode" name="postcode" required placeholder="e.g. SW1A 1AA"
+                                    pattern="[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}" maxlength="8">
+                                <span class="error-message" id="postcodeError" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Service Required (required) -->
+                            <div class="form-group">
+                                <label for="service">Service Required <span class="required">*</span></label>
+                                <select id="service" name="service_required" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Full Home Renovation">Full Home Renovation</option>
+                                    <option value="Bathroom Installation">Bathroom Installation</option>
+                                    <option value="Kitchen Installation">Kitchen Installation</option>
+                                    <option value="Roof Repairs / Installation">Roof Repairs / Installation</option>
+                                    <option value="Commercial Fit-out">Commercial Fit-out</option>
+                                    <option value="Other / General Repair">Other / General Repair</option>
                                 </select>
+                                <span class="error-message" id="serviceError" role="alert" aria-live="polite"></span>
                             </div>
 
+                            <!-- Property Type (required) -->
                             <div class="form-group">
-                                <label for="budget">Approximate Budget</label>
-                                <select id="budget" name="budget" required>
-                                    <option value="" disabled selected>Select budget range</option>
-                                    <option>Under £5,000</option>
-                                    <option>£5,000 – £10,000</option>
-                                    <option>£10,000 – £25,000</option>
-                                    <option>Over £25,000</option>
+                                <label for="propertyType">Property Type <span class="required">*</span></label>
+                                <select id="propertyType" name="property_type" required>
+                                    <option value="">Select property type</option>
+                                    <option value="Detached House">Detached House</option>
+                                    <option value="Semi-Detached House">Semi-Detached House</option>
+                                    <option value="Terraced House">Terraced House</option>
+                                    <option value="Flat / Apartment">Flat / Apartment</option>
+                                    <option value="Maisonette">Maisonette</option>
+                                    <option value="Commercial Property">Commercial Property</option>
+                                    <option value="Other">Other</option>
                                 </select>
+                                <span class="error-message" id="propertyTypeError" role="alert"
+                                    aria-live="polite"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required />
-                            </div>
-
+                            <!-- Approximate Budget (required) -->
                             <div class="form-group full">
-                                <label for="message">Project Details</label>
-                                <textarea id="message" name="message" rows="5"></textarea>
+                                <label for="budget">Approximate Budget <span class="required">*</span></label>
+                                <select id="budget" name="approximate_budget" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="Under £5,000">Under £5,000</option>
+                                    <option value="£5,000 – £10,000">£5,000 – £10,000</option>
+                                    <option value="£10,000 – £25,000">£10,000 – £25,000</option>
+                                    <option value="Over £25,000">Over £25,000</option>
+                                </select>
+                                <span class="error-message" id="budgetError" role="alert" aria-live="polite"></span>
                             </div>
 
-                        </div><!-- /form-grid -->
+                            <!-- Preferred Contact Method (required) -->
+                            <div class="form-group full">
+                                <label for="contactMethod">Preferred Contact Method <span
+                                        class="required">*</span></label>
+                                <select id="contactMethod" name="preferred_contact_method" required>
+                                    <option value="">Select contact method</option>
+                                    <option value="Phone">Phone</option>
+                                    <option value="Email">Email</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                </select>
+                                <span class="error-message" id="contactMethodError" role="alert"
+                                    aria-live="polite"></span>
+                            </div>
 
-                        <button type="submit" class="btn btn-primary" style="width:100%;">Send Enquiry</button>
-                        <p style="margin-top:1rem;font-size:0.8rem;color:#94a3b8;">* Final pricing is subject to site
-                            survey and detailed scope of works.</p>
+                            <!-- Project Details (required) -->
+                            <div class="form-group full">
+                                <label for="projectDetails">Project Details <span class="required">*</span></label>
+                                <textarea id="projectDetails" name="project_details" rows="5" required
+                                    placeholder="Please describe your project, including any specific requirements or preferences..."></textarea>
+                                <span class="error-message" id="projectDetailsError" role="alert"
+                                    aria-live="polite"></span>
+                            </div>
+
+                            <!-- Optional Photo Upload -->
+                            <div class="form-group full">
+                                <label for="photoUpload">Optional Photo Upload</label>
+                                <input type="file" id="photoUpload" name="attachment"
+                                    accept="image/png,image/jpeg,image/jpg,image/webp">
+                                <small class="field-hint">Accepted formats: PNG, JPG, WEBP. Max size: 5MB.</small>
+                            </div>
+
+                            <!-- Consent Checkbox (required) -->
+                            <div class="form-group full">
+                                <label class="consent-label">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    I agree to be contacted about my enquiry. <span class="required">*</span>
+                                </label>
+                                <span class="error-message" id="consentError" role="alert" aria-live="polite"></span>
+                            </div>
+                        </div>
+
+                        <!-- Success / Error messages container -->
+                        <div class="form-status-messages" aria-live="assertive">
+                            <div class="form-success-msg" id="formSuccessMsg" style="display:none;">
+                                ✓ Thank you! Your enquiry has been submitted successfully. We'll be in touch shortly.
+                            </div>
+                            <div class="form-error-msg" id="formErrorMsg" style="display:none;"></div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                            Send Enquiry
+                        </button>
+                        <p class="form-disclaimer">* Final pricing is subject to site survey and detailed scope of
+                            works.</p>
                     </form>
-                </div><!-- /form-card -->
-
-            </div><!-- /contact-grid -->
+                </div>
+            </div>
         </div>
     </section>
 
