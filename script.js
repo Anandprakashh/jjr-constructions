@@ -1,22 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Mobile Menu Toggle (Accessibility Fixes) ---
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('mobileMenu');
+    // --- 1. Mobile Menu Toggle (Updated selectors for class-based nav) ---
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
     if (mobileToggle && navLinks) {
 
-        // Helper to toggle menu state
         function toggleMenu() {
             const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
 
-            // Toggle the visual class
             navLinks.classList.toggle('active');
-
-            // Update accessibility attribute
             mobileToggle.setAttribute('aria-expanded', String(!isExpanded));
 
-            // Update aria-label based on state for screen readers
+            // Update aria-label for screen readers
             if (!isExpanded) {
                 mobileToggle.setAttribute('aria-label', 'Close navigation menu');
             } else {
@@ -24,14 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Click event
         mobileToggle.addEventListener('click', toggleMenu);
 
         // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && navLinks.classList.contains('active')) {
                 toggleMenu();
-                mobileToggle.focus(); // Return focus to button
+                mobileToggle.focus();
             }
         });
 
@@ -40,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 if (navLinks.classList.contains('active')) {
                     toggleMenu();
-                    mobileToggle.focus(); // Return focus to button for re-accessibility
+                    mobileToggle.focus();
                 }
             });
         });
@@ -48,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. Sticky Navbar Effect ---
     const navbar = document.querySelector('.navbar');
-
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -100,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach((question, index) => {
-        // Click handler
         question.addEventListener('click', () => {
             const item = question.parentElement;
             const isActive = item.classList.contains('active');
@@ -110,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (faqItem !== item) faqItem.classList.remove('active');
             });
 
-            // Toggle current
             if (!isActive) {
                 item.classList.add('active');
                 question.setAttribute('aria-expanded', 'true');
@@ -120,13 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Keyboard handler for Arrow Keys, Enter, Space, Escape
+        // Keyboard handler
         question.addEventListener('keydown', (e) => {
             const currentItemIndex = Array.from(faqQuestions).indexOf(question);
-
             switch (e.key) {
                 case 'ArrowDown':
-                    e.preventDefault(); // Prevent page scroll
+                    e.preventDefault();
                     if (currentItemIndex < faqQuestions.length - 1) {
                         faqQuestions[currentItemIndex + 1].focus();
                     } else {
@@ -135,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
                 case 'ArrowUp':
-                    e.preventDefault(); // Prevent page scroll
+                    e.preventDefault();
                     if (currentItemIndex > 0) {
                         faqQuestions[currentItemIndex - 1].focus();
                     } else {
@@ -144,20 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     break;
 
                 case 'Escape':
-                    // Close the currently open item if any
                     const activeItem = document.querySelector('.faq-item.active');
                     if (activeItem) {
                         const activeBtn = activeItem.querySelector('.faq-question');
                         activeItem.classList.remove('active');
                         activeBtn.setAttribute('aria-expanded', 'false');
-                        activeBtn.focus(); // Return focus to the button
+                        activeBtn.focus();
                     }
                     break;
 
                 case 'Enter':
                 case ' ':
-                    e.preventDefault(); // Prevent space scrolling on buttons
-                    question.click(); // Trigger the click handler
+                    e.preventDefault();
+                    question.click();
                     break;
             }
         });
@@ -167,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-
             if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
@@ -180,17 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-                // Focus management for accessibility
+                // Focus management
                 targetElement.setAttribute('tabindex', '-1');
                 targetElement.focus({ preventScroll: true });
             }
         });
     });
 
-    // --- 6. Quote Form Handling (Formspree Integration) ---
+    // --- 6. Quote Form Handling (Updated for new HTML IDs) ---
     const quoteForm = document.getElementById('quoteForm');
 
     if (quoteForm) {
+        const submitBtn = document.querySelector('.submit-btn');
 
         // Helper: Clear all validation errors
         function clearErrors() {
@@ -212,51 +202,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 group.classList.add('invalid');
                 msgBox.textContent = message;
 
-                // Move focus to the input after a short delay so user sees message first or focuses immediately?
-                // Usually better to focus the input on validation failure.
                 const input = document.getElementById(fieldId);
-                if (input) {
-                    setTimeout(() => input.focus(), 500);
+                if (input) setTimeout(() => input.focus(), 500);
+            } else if (fieldId === 'consent') {
+                // Handle consent checkbox error specifically
+                const consentGroup = document.querySelector('.consent-label');
+                const consentMsg = document.getElementById('consentError');
+                if (consentGroup) {
+                    consentGroup.classList.add('invalid');
+                    if (consentMsg) consentMsg.textContent = message;
                 }
             }
         }
 
-        // Helper: Validate Email format
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        // Helper: Validate Phone number (loose format)
-        function isValidPhone(phone) {
-            return phone.replace(/\D/g, '').length >= 7;
-        }
+        // Helpers: Validation Regex
+        function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+        function isValidPhone(phone) { return phone.replace(/\D/g, '').length >= 7; }
 
         quoteForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             clearErrors();
 
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.innerText;
-
-            // 1. Honeypot Check (Bot Protection)
-            if (quoteForm.querySelector('[name="_gotcha"]').value !== "") return;
-
-            // 2. Get Values
-            const fullName = document.getElementById('fullName').value.trim();
+            // Update IDs to match new HTML structure
+            const fullName = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const postcode = document.getElementById('postcode').value.trim();
             const service = document.getElementById('service').value;
-            const propertyType = document.getElementById('propertyType').value;
+            const propertyType = document.getElementById('property-type').value;
             const budget = document.getElementById('budget').value;
-            const contactMethod = document.getElementById('contactMethod').value;
-            const details = document.getElementById('projectDetails').value.trim();
+            const contactMethod = document.getElementById('contact-method').value;
+            const details = document.getElementById('details').value.trim();
             const consent = document.getElementById('consent').checked;
 
             let isValid = true;
 
-            // 3. Validation Checks
-            if (!fullName) { showFieldError('fullName', 'Please enter your name.'); isValid = false; }
+            // Validation Checks
+            if (!fullName) { showFieldError('name', 'Please enter your name.'); isValid = false; }
 
             if (!email || !isValidEmail(email)) {
                 showFieldError('email', 'Please enter a valid email address.');
@@ -268,104 +250,92 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
 
-            if (postcode) {
-                // Basic UK Postcode Regex validation
-                const postcodeRegex = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
-                if (!postcodeRegex.test(postcode)) {
-                    showFieldError('postcode', 'Please enter a valid UK Postcode.');
-                    isValid = false;
-                }
-            } else {
+            if (!postcode) {
                 showFieldError('postcode', 'Postcode is required.');
+                isValid = false;
+            } else if (!/^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i.test(postcode)) {
+                // Strict UK Postcode Regex
+                showFieldError('postcode', 'Please enter a valid UK Postcode.');
                 isValid = false;
             }
 
             if (!service) { showFieldError('service', 'Please select a service.'); isValid = false; }
-            if (!propertyType) { showFieldError('propertyType', 'Please select property type.'); isValid = false; }
-            if (!budget) { showFieldError('budget', 'Please select a budget range.'); isValid = false; }
-            if (!contactMethod) { showFieldError('contactMethod', 'Please select contact method.'); isValid = false; }
+            if (!propertyType) { showFieldError('property-type', 'Please select property type.'); isValid = false; }
+            if (!budget) { showFieldError('budget', 'Please select budget range.'); isValid = false; }
+            if (!contactMethod) { showFieldError('contact-method', 'Please select contact method.'); isValid = false; }
+            if (!details) { showFieldError('details', 'Please describe your project.'); isValid = false; }
 
-            if (!details) { showFieldError('projectDetails', 'Please describe your project.'); isValid = false; }
             if (!consent) {
-                const consentGroup = document.getElementById('consent').closest('.form-group');
-                const consentMsg = document.getElementById('consentError');
-
-                // Add visual error state to the wrapper div since it has no specific element
-                if (consentGroup) {
-                    consentGroup.classList.add('invalid');
-                    // Also update the span for screen readers
-                    if (consentMsg) consentMsg.textContent = 'You must agree to be contacted.';
-                }
+                showFieldError('consent', 'You must agree to be contacted.');
                 isValid = false;
             }
 
             if (!isValid) return;
 
-            // 4. Submission Preparation
+            // Submission Preparation
             submitBtn.innerText = 'Sending...';
             submitBtn.disabled = true;
 
             const formData = new FormData(quoteForm);
-            formData.append('_form-name', 'jjr-quote-form');
 
             try {
-                const response = await fetch(quoteForm.action, {
+                // Note: Replace with your actual endpoint (e.g., Formspree action URL)
+                const response = await fetch(quoteForm.action || '/api/submit-form', {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
                     // Success State
                     const successMsg = document.getElementById('formSuccessMsg');
-                    successMsg.style.display = 'block';
-
-                    // Announce to screen reader
-                    successMsg.setAttribute('role', 'status');
+                    if (successMsg) successMsg.style.display = 'block';
 
                     quoteForm.reset();
 
-                    // Scroll to message for mobile users
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                    // Reset button after delay
                     setTimeout(() => {
                         submitBtn.innerText = 'Sent Successfully!';
                         submitBtn.style.backgroundColor = '#10b981'; // Green
-                        submitBtn.style.borderColor = '#10b981';
 
                         setTimeout(() => {
-                            submitBtn.innerText = originalText;
+                            submitBtn.innerText = 'Send Enquiry';
                             submitBtn.disabled = false;
                             submitBtn.style.backgroundColor = '';
-                            submitBtn.style.borderColor = '';
-
-                            // Hide message again after a while
-                            successMsg.style.display = 'none';
+                            if (successMsg) successMsg.style.display = 'none';
                         }, 3000);
-                    }, 2000);
+                    }, 1500);
 
                 } else {
-                    // Formspree Error State
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        throw new Error(data.errors.map(error => error.message).join(", "));
-                    } else {
-                        throw new Error('Oops! There was a problem submitting your form.');
-                    }
+                    throw new Error('Oops! There was a problem submitting your form.');
                 }
-
             } catch (error) {
-                // General Network/Server Error
                 const errorMsg = document.getElementById('formErrorMsg');
-                errorMsg.innerText = error.message;
-                errorMsg.style.display = 'block';
-
+                if (errorMsg) {
+                    errorMsg.innerText = error.message;
+                    errorMsg.style.display = 'block';
+                }
                 submitBtn.innerText = 'Try Again';
                 submitBtn.disabled = false;
             }
         });
+    }
+
+    // --- 7. Scroll Animations (Intersection Observer) ---
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Run once per element
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        animatedElements.forEach(el => observer.observe(el));
+    } else {
+        // Fallback for older browsers
+        animatedElements.forEach(el => el.classList.add('is-visible'));
     }
 });
